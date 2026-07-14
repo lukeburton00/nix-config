@@ -43,5 +43,14 @@
         ];
       };
     };
+    nixosConfigurations = {
+      endymion = nixpkgs.lib.nixosSystem {
+	specialArgs = {
+          inherit self inputs;
+          username = "luke";
+        };
+        modules = [ ./hosts/endymion ];
+      };
+    };
   };
 }
