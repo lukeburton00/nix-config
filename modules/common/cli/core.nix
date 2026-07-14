@@ -1,19 +1,14 @@
 {pkgs, ...}: {
-  imports = [];
-  home.packages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     btop
     fastfetch
     fd
     fzf
     git
-    neovim
-    opencode
     ripgrep
-    rustup
     starship
     stow
     tmux
-    tree-sitter
     zoxide
   ];
 }
