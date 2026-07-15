@@ -4,8 +4,10 @@
     nvidia = {
       open = true;
       modesetting.enable = true;
-      powerManagement = true;
+      powerManagement.enable = true;
     };
   };
   services.xserver.videoDrivers = ["nvidia"];
+
+  boot.kernelParams = ["nvidia.NVreg_TemporaryFilePath=/var/tmp"];
 }

@@ -5,10 +5,13 @@
 }: {
   imports = [
     ./hardware-configuration.nix
+
     ../../modules/common/cli/core.nix
     ../../modules/common/cli/dev.nix
     ../../modules/common/nix.nix
     ../../modules/common/locale.nix
+    ../../modules/common/tailscale.nix
+
     ../../modules/nixos/hardware/nvidia.nix
     ../../modules/nixos/desktop/gnome.nix
     ../../modules/nixos/desktop/flatpak.nix
@@ -26,6 +29,10 @@
       "splash"
     ];
     plymouth.enable = true;
+    kernel.sysctl = {
+      "net.core.default_qdisc" = "fq";
+      "net.ipv4.tcp_congestion_control" = "bbr";
+    };
   };
 
   services.resolved.enable = true;
@@ -42,12 +49,13 @@
   };
 
   environment.systemPackages = with pkgs; [
+    discord
     firefox
     ghostty
-    discord
   ];
 
   services.flatpak.packages = [
     "it.mijorus.gearlever"
+    "com.github.tchx84.Flatseal"
   ];
 }

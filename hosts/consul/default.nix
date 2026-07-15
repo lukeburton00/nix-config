@@ -33,8 +33,8 @@ in {
 
   homebrew.brews = [];
   homebrew.casks = [
+    "discord"
     "firefox"
     "ghostty"
-    "discord"
   ];
 }
