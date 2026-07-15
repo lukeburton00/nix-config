@@ -1,16 +1,15 @@
 {
   self,
-  config,
-  inputs,
   username,
   ...
 }: let
   homeDirectory = "/Users/${username}";
 in {
   imports = [
-    inputs.home-manager.darwinModules.home-manager
-    inputs.nix-homebrew.darwinModules.nix-homebrew
-    ../../modules/nix
+    ../../modules/common/cli/core.nix
+    ../../modules/common/cli/dev.nix
+    ../../modules/common/nix.nix
+    ../../modules/darwin/homebrew.nix
   ];
 
   nixpkgs.hostPlatform = "aarch64-darwin";
@@ -23,6 +22,7 @@ in {
     hostName = "consul";
     computerName = "consul";
   };
+
   security.pam.services.sudo_local = {
     touchIdAuth = true;
     reattach = true;
@@ -31,33 +31,10 @@ in {
   system.primaryUser = username;
   users.users.${username}.home = homeDirectory;
 
-  nix-homebrew = {
-    enable = true;
-    user = username;
-    autoMigrate = true;
-    taps = {
-      "homebrew/homebrew-core" = inputs.homebrew-core;
-      "homebrew/homebrew-cask" = inputs.homebrew-cask;
-    };
-  };
-  homebrew = {
-    enable = true;
-    taps = builtins.attrNames config.nix-homebrew.taps;
-    brews = [];
-    casks = [
-      "firefox"
-      "ghostty"
-    ];
-  };
-
-  home-manager.users.${username} = {
-    imports = [
-      ../../modules/home/core.nix
-    ];
-    home = {
-      inherit username;
-      inherit homeDirectory;
-      stateVersion = "26.11";
-    };
-  };
+  homebrew.brews = [];
+  homebrew.casks = [
+    "firefox"
+    "ghostty"
+    "discord"
+  ];
 }

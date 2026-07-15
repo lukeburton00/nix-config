@@ -7,9 +7,6 @@
     darwin.url = "github:nix-darwin/nix-darwin/master";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
 
-    home-manager.url = "github:nix-community/home-manager/master";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
-
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
 
     homebrew-core = {
@@ -20,16 +17,18 @@
       url = "github:homebrew/homebrew-cask";
       flake = false;
     };
+
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.7.0";
   };
 
   outputs = {
     self,
     darwin,
     nixpkgs,
-    home-manager,
     nix-homebrew,
     homebrew-core,
     homebrew-cask,
+    nix-flatpak,
     ...
   } @ inputs: {
     darwinConfigurations = {
@@ -45,11 +44,11 @@
     };
     nixosConfigurations = {
       endymion = nixpkgs.lib.nixosSystem {
-	specialArgs = {
+        specialArgs = {
           inherit self inputs;
           username = "luke";
         };
-        modules = [ ./hosts/endymion ];
+        modules = [./hosts/endymion];
       };
     };
   };
