@@ -9,6 +9,8 @@
     starship
     stow
     tmux
+    unzip
+    yazi
     zoxide
   ];
 }
