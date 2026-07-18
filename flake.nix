@@ -35,7 +35,7 @@
       consul = darwin.lib.darwinSystem {
         specialArgs = {
           inherit self inputs;
-          username = "lukeburton";
+          username = "luke";
         };
         modules = [
           ./hosts/consul
