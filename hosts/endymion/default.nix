@@ -13,7 +13,7 @@
     ../../modules/common/tailscale.nix
 
     ../../modules/nixos/hardware/nvidia.nix
-    ../../modules/nixos/desktop/gnome.nix
+    ../../modules/nixos/desktop/sway.nix
     ../../modules/nixos/desktop/flatpak.nix
     ../../modules/nixos/desktop/appimage.nix
     ../../modules/nixos/desktop/gaming.nix
