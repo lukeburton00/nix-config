@@ -8,6 +8,7 @@ in {
   imports = [
     ../../modules/common/cli/core.nix
     ../../modules/common/cli/dev.nix
+    ../../modules/common/tailscale.nix
     ../../modules/common/nix.nix
     ../../modules/darwin/homebrew.nix
   ];
