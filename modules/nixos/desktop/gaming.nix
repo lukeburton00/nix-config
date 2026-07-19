@@ -1,4 +1,4 @@
-{
+{pkgs, ...}: {
   programs = {
     steam = {
       enable = true;
@@ -21,5 +21,9 @@
     }
 
     "com.vysp3r.ProtonPlus"
+  ];
+
+  environment.systemPackages = with pkgs; [
+    ckan
   ];
 }
