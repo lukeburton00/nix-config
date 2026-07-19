@@ -5,6 +5,7 @@
     fuzzel
     grim
     playerctl
+    xrandr
   ];
 
   services.gnome.gnome-keyring.enable = true;

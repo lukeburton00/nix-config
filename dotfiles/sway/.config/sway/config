@@ -64,6 +64,8 @@ default_floating_border none
 
 exec mako --default-timeout 5000 --output DP-4 --anchor bottom-right
 
+exec_always xrandr --output DP-4 --primary
+
 ### Input configuration
 #
 # Example configuration:
