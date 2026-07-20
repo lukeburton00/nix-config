@@ -12,6 +12,7 @@
     ../../modules/common/locale.nix
     ../../modules/common/tailscale.nix
 
+    ../../modules/nixos/gc.nix
     ../../modules/nixos/hardware/nvidia.nix
     ../../modules/nixos/desktop/sway.nix
     ../../modules/nixos/desktop/flatpak.nix
@@ -50,7 +51,7 @@
 
   environment.systemPackages = with pkgs; [
     discord
-    firefox
+    librewolf
     ghostty
   ];
 
