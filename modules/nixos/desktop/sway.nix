@@ -6,6 +6,8 @@
     grim
     playerctl
     xrandr
+    kanshi
+    pavucontrol
   ];
 
   services.gnome.gnome-keyring.enable = true;
