@@ -22,9 +22,6 @@
     };
 
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.7.0";
-
-    nvf.url = "github:notashelf/nvf";
-    nvf.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
@@ -36,7 +33,6 @@
     homebrew-core,
     homebrew-cask,
     nix-flatpak,
-    nvf,
     ...
   } @ inputs: let
     username = "luke";
