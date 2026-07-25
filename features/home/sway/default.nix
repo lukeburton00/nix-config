@@ -1,4 +1,10 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  osConfig,
+  ...
+}: let
+  monitors = osConfig.monitors;
+in {
   imports = [
     ../kanshi
     ../mako
@@ -27,39 +33,39 @@
       workspaceOutputAssign = [
         {
           workspace = "1";
-          output = "DP-4";
+          output = monitors.primary;
         }
         {
           workspace = "2";
-          output = "DP-4";
+          output = monitors.primary;
         }
         {
           workspace = "3";
-          output = "DP-4";
+          output = monitors.primary;
         }
         {
           workspace = "4";
-          output = "DP-4";
+          output = monitors.primary;
         }
         {
           workspace = "5";
-          output = "DP-4";
+          output = monitors.primary;
         }
         {
           workspace = "6";
-          output = "DP-3";
+          output = monitors.secondary;
         }
         {
           workspace = "7";
-          output = "DP-3";
+          output = monitors.secondary;
         }
         {
           workspace = "8";
-          output = "DP-3";
+          output = monitors.secondary;
         }
         {
           workspace = "9";
-          output = "DP-3";
+          output = monitors.secondary;
         }
       ];
 
@@ -172,6 +178,10 @@
       startup = [
         {
           command = "kanshi";
+          always = true;
+        }
+        {
+          command = "mako";
           always = true;
         }
       ];
