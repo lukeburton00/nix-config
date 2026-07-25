@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   security.polkit.enable = true;
 
   services.greetd = {

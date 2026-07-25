@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   home.packages = with pkgs; [
     btop
     fastfetch
@@ -13,9 +13,6 @@
     opencode
     rustup
     tree-sitter
-    statix
-    alejandra
-    nil
     tree
   ];
 }
