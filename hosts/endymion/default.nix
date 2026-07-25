@@ -6,18 +6,17 @@
   imports = [
     ./hardware-configuration.nix
 
-    ../../modules/common/cli/core.nix
-    ../../modules/common/cli/dev.nix
-    ../../modules/common/nix.nix
-    ../../modules/common/locale.nix
-    ../../modules/common/tailscale.nix
+    ../../features/locale
+    ../../features/nix
+    ../../features/tailscale
+    ../../features/direnv
 
-    ../../modules/nixos/gc.nix
-    ../../modules/nixos/hardware/nvidia.nix
-    ../../modules/nixos/desktop/sway.nix
-    ../../modules/nixos/desktop/flatpak.nix
-    ../../modules/nixos/desktop/appimage.nix
-    ../../modules/nixos/desktop/gaming.nix
+    ../../features/nixos/gc
+    ../../features/nixos/nvidia
+    ../../features/nixos/greetd
+    ../../features/nixos/flatpak
+    ../../features/nixos/appimage
+    ../../features/nixos/gaming
   ];
   system.stateVersion = "26.05";
 
@@ -52,7 +51,6 @@
   environment.systemPackages = with pkgs; [
     discord
     librewolf
-    ghostty
   ];
 
   services.flatpak.packages = [

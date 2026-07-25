@@ -6,11 +6,10 @@
   homeDirectory = "/Users/${username}";
 in {
   imports = [
-    ../../modules/common/cli/core.nix
-    ../../modules/common/cli/dev.nix
-    ../../modules/common/tailscale.nix
-    ../../modules/common/nix.nix
-    ../../modules/darwin/homebrew.nix
+    ../../features/nix
+    ../../features/tailscale
+    ../../features/direnv
+    ../../features/darwin/homebrew
   ];
 
   nixpkgs.hostPlatform = "aarch64-darwin";
