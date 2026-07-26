@@ -83,10 +83,10 @@ in {
         titlebar = false;
       };
 
-      floating.modifier = "Mod1";
+      floating.modifier = "Mod4";
 
       keybindings = let
-        mod = "Mod1";
+        mod = "Mod4";
         left = "h";
         down = "j";
         up = "k";
@@ -99,6 +99,7 @@ in {
 
         "${mod}+Shift+c" = "reload";
         "${mod}+Shift+e" = "exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'";
+        "${mod}+Shift+s" = "exec swaynag -t warning -m 'You pressed the suspend shortcut. Do you really want to suspend the system?' -B 'Yes, suspend' 'systemctl suspend'";
 
         "${mod}+${left}" = "focus left";
         "${mod}+${down}" = "focus down";
@@ -169,9 +170,9 @@ in {
 
       modes = {
         gaming = {
-          "Mod1+a" = "output * adaptive_sync on";
-          "Mod1+o" = "output * adaptive_sync off";
-          "Mod1+g" = "mode default";
+          "Mod4+a" = "output * adaptive_sync on";
+          "Mod4+o" = "output * adaptive_sync off";
+          "Mod4+g" = "mode default";
         };
       };
 
