@@ -12,13 +12,25 @@
       self.nixosModules.endymionHardware
       self.nixosModules.homeManager
       self.nixosModules.ghostty
-      self.nixosModules.gnome
+      self.nixosModules.tailscale
+      self.nixosModules.nixSettings
+      self.nixosModules.direnv
+      self.nixosModules.locale
+      self.nixosModules.monitors
+      self.nixosModules.gc
+      self.nixosModules.nvidia
+      self.nixosModules.greetd
+      self.nixosModules.flatpak
+      self.nixosModules.appimage
+      self.nixosModules.gaming
     ];
 
-    nix.settings.experimental-features = ["nix-command" "flakes"];
-    nixpkgs.config.allowUnfree = true;
-
     system.stateVersion = "26.05";
+
+    monitors = {
+      primary = "DP-4";
+      secondary = "DP-3";
+    };
 
     boot = {
       loader.systemd-boot.enable = true;
