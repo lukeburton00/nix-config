@@ -77,13 +77,27 @@ vim.keymap.set("i", "<Esc>", function()
 	return vim.fn.pumvisible() == 1 and "\5\27" or "\27"
 end, { expr = true })
 
+-- fzf-lua
+require("fzf-lua").setup({
+	keymap = {
+		fzf = {
+			["tab"] = "down",
+			["btab"] = "up",
+		},
+	},
+})
+
 map("n", "<leader>f", function()
-	mini_pick.builtin.files()
-end)
+	require("fzf-lua").files()
+end, { desc = "Search files" })
 
 map("n", "<leader>l", function()
-	mini_pick.builtin.grep_live()
-end)
+	require("fzf-lua").live_grep()
+end, { desc = "Live grep" })
+
+map("n", "<leader>r", function()
+	require("fzf-lua").lsp_finder()
+end, { desc = "LSP finder" })
 
 -- gitsigns
 require("gitsigns").setup({
@@ -100,6 +114,10 @@ vim.lsp.enable({
 	"gopls",
 	"solargraph",
 	"nil_ls",
+	"clangd",
+	"rust_analyzer",
+	"neocmake",
+	"ts_ls",
 })
 
 vim.lsp.config("lua_ls", {
@@ -147,6 +165,11 @@ require("lint").linters_by_ft = {
 	go = { "golangcilint" },
 	ruby = { "rubocop" },
 	nix = { "statix" },
+	c = { "clangtidy" },
+	cpp = { "clangtidy" },
+	cmake = { "cmake_lint" },
+	rust = { "clippy" },
+	typescript = { "eslint_d" },
 }
 
 vim.api.nvim_create_autocmd({ "BufWritePost", "BufReadPost" }, {
@@ -182,8 +205,13 @@ require("conform").setup({
 	formatters_by_ft = {
 		lua = { "stylua" },
 		go = { "gofumpt", "goimports-reviser" },
-		ruby = { "rubocop" },
+		ruby = { "rubyfmt" },
 		nix = { "alejandra" },
+		c = { "clang-format" },
+		cpp = { "clang-format" },
+		cmake = { "cmake_format" },
+		rust = { "rustfmt" },
+		typescript = { "prettierd" },
 	},
 	default_format_opts = {
 		lsp_format = "fallback",
