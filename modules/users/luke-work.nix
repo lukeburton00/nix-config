@@ -5,7 +5,13 @@
 }: {
   flake.homeModules.lukeWork = {pkgs, ...}: {
     imports = [
+      self.homeModules.zsh
       self.homeModules.nvim
+      self.homeModules.tools
+      self.homeModules.starship
+      self.homeModules.yazi
+      self.homeModules.zoxide
+      self.homeModules.tmux
     ];
 
     home.stateVersion = "26.05";
