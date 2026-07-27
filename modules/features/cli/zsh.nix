@@ -13,7 +13,7 @@
         l = "ls -A -p --color=auto | sort";
         nd = "nix develop --command zsh -c tmux";
       };
-      initExtra = ''
+      initContent = ''
         # Machine-local settings and secrets that should not be managed by Nix.
         [[ -r "$HOME/.zshrc.local" ]] && source "$HOME/.zshrc.local"
       '';
