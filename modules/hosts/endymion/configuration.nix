@@ -12,6 +12,7 @@
       self.nixosModules.endymionHardware
       self.nixosModules.nix-ld
       self.nixosModules.systemd-boot
+      self.nixosModules.cosmic
       self.nixosModules.homeManager
       self.nixosModules.ghostty
       self.nixosModules.tailscale
@@ -22,7 +23,6 @@
       self.nixosModules.networking
       self.nixosModules.gc
       self.nixosModules.nvidia
-      self.nixosModules.greetd
       self.nixosModules.flatpak
       self.nixosModules.appimage
       self.nixosModules.gaming
