@@ -17,9 +17,9 @@
       librewolf
     ];
   };
-  flake.darwinModules.librewolf = {
+  flake.darwinModules.firefox = {
     homebrew.casks = [
-      "librewolf"
+      "firefox"
     ];
   };
 }
