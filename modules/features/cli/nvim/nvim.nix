@@ -50,6 +50,9 @@
         clippy
         rustfmt
         rust-analyzer
+
+        # odin
+        ols
       ];
 
       plugins = with pkgs.vimPlugins; [
