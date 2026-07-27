@@ -15,6 +15,9 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    wrapper-modules = {
+      url = "github:BirdeeHub/nix-wrapper-modules";
+    };
     nix-flatpak = {
       url = "github:gmodena/nix-flatpak/?ref=v0.7.0";
     };
