@@ -16,7 +16,7 @@
       self.darwinModules.direnv
       self.darwinModules.locale
       self.darwinModules.homebrew
-      self.darwinModules.librewolf
+      self.darwinModules.firefox
       self.darwinModules.lukeWork
     ];
 
