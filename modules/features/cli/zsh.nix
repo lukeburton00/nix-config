@@ -11,6 +11,7 @@
         v = "nvim";
         c = "clear";
         l = "ls -A -p --color=auto | sort";
+        nd = "nix develop --command zsh -c tmux";
       };
     };
   };
