@@ -6,7 +6,6 @@
   flake.homeModules.luke = {pkgs, ...}: {
     imports = [
       self.homeModules.ghostty
-      self.homeModules.librewolf
       self.homeModules.git
       self.homeModules.starship
       self.homeModules.mise
@@ -18,7 +17,6 @@
       self.homeModules.lazyworktree
       self.homeModules.nvim
       self.homeModules.tools
-      self.homeModules.sway
     ];
 
     home.stateVersion = "26.05";
@@ -36,10 +34,21 @@
       extraGroups = ["networkmanager" "wheel"];
       shell = pkgs.zsh;
     };
-    home-manager.users.luke = self.homeModules.luke;
+    home-manager.users.luke = {
+      imports = [
+        self.homeModules.luke
+        self.homeModules.sway
+        self.homeModules.librewolf
+      ];
+    };
   };
 
   flake.darwinModules.luke = {
-    home-manager.users.luke = self.homeModules.luke;
+    home-manager.users.luke = {
+      imports = [
+        self.homeModules.luke
+      ];
+      home.homeDirectory = "/Users/luke";
+    };
   };
 }
