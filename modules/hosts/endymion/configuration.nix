@@ -25,7 +25,6 @@
       self.nixosModules.greetd
       self.nixosModules.flatpak
       self.nixosModules.appimage
-      self.nixosModules.librewolf
       self.nixosModules.gaming
       self.nixosModules.luke
     ];
