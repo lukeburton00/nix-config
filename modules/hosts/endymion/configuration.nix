@@ -35,11 +35,6 @@
       secondary = "DP-3";
     };
 
-    networking.hostname = "endymion";
-
-    environment.systemPackages = with pkgs; [
-      discord
-      librewolf
-    ];
+    networking.hostName = "endymion";
   };
 }
