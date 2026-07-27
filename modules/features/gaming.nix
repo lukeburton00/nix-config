@@ -28,6 +28,7 @@
     ];
 
     environment.systemPackages = with pkgs; [
+      discord
       ckan
       heroic
       prismlauncher
