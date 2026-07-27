@@ -18,6 +18,7 @@
       self.nixosModules.direnv
       self.nixosModules.locale
       self.nixosModules.monitors
+      self.nixosModules.networking
       self.nixosModules.gc
       self.nixosModules.nvidia
       self.nixosModules.greetd
