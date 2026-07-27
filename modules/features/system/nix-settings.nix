@@ -2,16 +2,16 @@
   self,
   inputs,
   ...
-}: let
-  nixSettings = {
+}: {
+  flake.nixosModules.nixSettings = {
     nix.settings.experimental-features = [
       "nix-command"
       "flakes"
     ];
-
     nixpkgs.config.allowUnfree = true;
   };
-in {
-  flake.nixosModules.nixSettings = nixSettings;
-  flake.darwinModules.nixSettings = nixSettings;
+
+  flake.darwinModules.nixSettings = {
+    nix.enable = false;
+  };
 }

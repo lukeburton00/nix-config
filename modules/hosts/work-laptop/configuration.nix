@@ -12,7 +12,6 @@
       self.darwinModules.work-laptopHardware
       self.darwinModules.homeManager
       self.darwinModules.ghostty
-      self.darwinModules.tailscale
       self.darwinModules.nixSettings
       self.darwinModules.direnv
       self.darwinModules.locale
@@ -22,5 +21,7 @@
     ];
 
     system.stateVersion = 6;
+
+    networking.hostName = "Breeze-G6NVT9PXPP";
   };
 }
