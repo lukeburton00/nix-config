@@ -37,7 +37,6 @@
     home-manager.users.luke = {
       imports = [
         self.homeModules.luke
-        self.homeModules.sway
         self.homeModules.librewolf
       ];
     };
