@@ -10,6 +10,7 @@
   }: {
     imports = [
       self.nixosModules.endymionHardware
+      self.nixosModules.nix-ld
       self.nixosModules.systemd-boot
       self.nixosModules.homeManager
       self.nixosModules.ghostty
