@@ -6,16 +6,10 @@
   flake.homeModules.librewolf = {
     programs.librewolf = {
       enable = true;
-      package = null;
       settings = {
         "privacy.resistFingerprinting" = false;
       };
     };
-  };
-  flake.nixosModules.librewolf = {pkgs, ...}: {
-    environment.systemPackages = with pkgs; [
-      librewolf
-    ];
   };
   flake.darwinModules.firefox = {
     homebrew.casks = [
