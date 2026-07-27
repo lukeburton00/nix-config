@@ -14,9 +14,12 @@
       escapeTime = 200;
       mouse = true;
       focusEvents = true;
+      shell = "${pkgs.zsh}/bin/zsh";
+
       plugins = with pkgs.tmuxPlugins; [
         vim-tmux-navigator
       ];
+
       extraConfig = ''
         set-option -a terminal-features 'xterm-256color:RGB'
 
