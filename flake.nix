@@ -33,6 +33,9 @@
       url = "github:homebrew/homebrew-cask";
       flake = false;
     };
+    catppuccin = {
+      url = "github:catppuccin/nix";
+    };
   };
 
   outputs = inputs:
