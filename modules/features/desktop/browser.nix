@@ -3,14 +3,16 @@
   inputs,
   ...
 }: {
-  flake.homeModules.librewolf = {
-    programs.librewolf = {
+  flake.homeModules.firefox = {
+    programs.firefox = {
       enable = true;
-      settings = {
-        "privacy.resistFingerprinting" = false;
+      profiles.default = {
+        extensions.force = true;
+        isDefault = true;
       };
     };
   };
+
   flake.darwinModules.firefox = {
     homebrew.casks = [
       "firefox"
