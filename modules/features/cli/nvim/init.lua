@@ -28,6 +28,10 @@ local function map(mode, lhs, rhs, opts)
 	vim.keymap.set(mode, lhs, rhs, opts)
 end
 
+require("nvim-treesitter").setup({
+	highlight = { enable = true },
+})
+
 map("n", "Q", "<nop>")
 map("n", "<C-d>", "<C-d>zz")
 map("n", "<C-u>", "<C-u>zz")
@@ -50,9 +54,6 @@ vim.api.nvim_create_autocmd("FileChangedShellPost", {
 		vim.notify("File reloaded from disk", vim.log.levels.INFO, { title = "AutoRead" })
 	end,
 })
-
--- Theme
-vim.cmd.colorscheme("vague")
 
 -- Mini
 local mini_pick = require("mini.pick")

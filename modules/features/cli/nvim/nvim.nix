@@ -56,7 +56,6 @@
       ];
 
       plugins = with pkgs.vimPlugins; [
-        vague-nvim
         mini-nvim
         nvim-lspconfig
         nvim-lint
@@ -65,9 +64,10 @@
         Navigator-nvim
         fzf-lua
         gitsigns-nvim
+        nvim-treesitter.withAllGrammars
       ];
-    };
 
-    xdg.configFile."nvim/init.lua".source = ./init.lua;
+      initLua = builtins.readFile ./init.lua;
+    };
   };
 }
