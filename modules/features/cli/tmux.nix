@@ -28,21 +28,16 @@
 
         set -g status-position bottom
         set -g status-justify right
-        set -g status-style "fg=white,bg=default"
+        set -g status-style "bg=default"
 
         set -g status-left-length 140
-        set -g status-left "#[fg=white,bg=default] #S #{prefix_highlight}"
+        set -g status-left "#[bg=default] #S #{prefix_highlight}"
 
         set -g status-right-length 140
         set -g status-right ""
 
-        set -g message-style "fg=black,bg=cyan"
-
-        set -g pane-border-style fg=black
-        set -g pane-active-border-style "bg=default fg=black"
-
         setw -g window-status-separator " \~ "
-        setw -g window-status-format "#[fg=white,bg=default] #W "
+        setw -g window-status-format "#[bg=default] #W "
         setw -g window-status-current-format "#[fg=yellow,bg=default] #W "
 
         bind-key -n C-M-n switch-client -n
