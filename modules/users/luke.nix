@@ -37,7 +37,8 @@
     home-manager.users.luke = {
       imports = [
         self.homeModules.luke
-        self.homeModules.librewolf
+        self.homeModules.catppuccin
+        self.homeModules.firefox
       ];
     };
   };

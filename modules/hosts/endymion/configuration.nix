@@ -26,6 +26,7 @@
       self.nixosModules.flatpak
       self.nixosModules.appimage
       self.nixosModules.gaming
+      self.nixosModules.catppuccin
       self.nixosModules.luke
     ];
 
