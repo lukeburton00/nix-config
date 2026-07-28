@@ -9,7 +9,8 @@
       package = null;
       systemd.enable = false;
       settings = {
-        "font-size" = 16;
+        "font-family" = "Maple Mono NF";
+        "font-size" = 15;
         "quit-after-last-window-closed" = true;
         "term" = "xterm-256color";
       };
