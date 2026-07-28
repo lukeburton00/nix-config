@@ -11,7 +11,7 @@
         v = "nvim";
         c = "clear";
         l = "ls -A -p --color=auto | sort";
-        nd = "nix develop --command zsh -c tmux";
+        nd = "nix develop --command zsh";
       };
       initContent = ''
         # Machine-local settings and secrets that should not be managed by Nix.
