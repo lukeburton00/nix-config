@@ -9,6 +9,7 @@
     ...
   }: let
     monitors = osConfig.monitors;
+    wallpaper = ../../../assets/wallpapers/purpled-night.jpg;
   in {
     imports = [
       self.homeModules.kanshi
@@ -31,7 +32,7 @@
       config = {
         output = {
           "*" = {
-            bg = "~/Pictures/wallpapers/wallpaper.jpg fill";
+            bg = "${wallpaper} fill";
           };
         };
 
@@ -100,7 +101,7 @@
           "${mod}+Return" = "exec ghostty";
           "${mod}+q" = "kill";
           "${mod}+d" = "exec fuzzel";
-          "${mod}+w" = "exec librewolf";
+          "${mod}+w" = "exec firefox";
 
           "${mod}+Shift+c" = "reload";
           "${mod}+Shift+e" = "exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'";
