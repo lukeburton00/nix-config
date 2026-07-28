@@ -9,7 +9,6 @@
       package = null;
       systemd.enable = false;
       settings = {
-        theme = "Vague";
         "font-size" = 16;
         "quit-after-last-window-closed" = true;
         "term" = "xterm-256color";
