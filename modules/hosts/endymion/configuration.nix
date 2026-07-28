@@ -11,6 +11,8 @@
     imports = [
       self.nixosModules.endymionHardware
       self.nixosModules.nix-ld
+      self.nixosModules.font
+      self.nixosModules.cider
       self.nixosModules.systemd-boot
       self.nixosModules.cosmic
       self.nixosModules.homeManager
