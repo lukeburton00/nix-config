@@ -3,7 +3,7 @@
   inputs,
   ...
 }: {
-  flake.nixosModules.networking = {
+  flake.modules.nixos.networking = {
     services.resolved.enable = true;
     networking = {
       networkmanager.enable = true;

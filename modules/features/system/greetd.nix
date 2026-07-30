@@ -3,7 +3,7 @@
   inputs,
   ...
 }: {
-  flake.nixosModules.greetd = {pkgs, ...}: {
+  flake.modules.nixos.greetd = {pkgs, ...}: {
     security.polkit.enable = true;
 
     services.greetd = {

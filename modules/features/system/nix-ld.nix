@@ -3,7 +3,7 @@
   inputs,
   ...
 }: {
-  flake.nixosModules.nix-ld = {
+  flake.modules.nixos.nix-ld = {
     programs.nix-ld.enable = true;
   };
 }

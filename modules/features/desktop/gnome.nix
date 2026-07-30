@@ -3,7 +3,7 @@
   inputs,
   ...
 }: {
-  flake.nixosModules.gnome = {pkgs, ...}: {
+  flake.modules.nixos.gnome = {pkgs, ...}: {
     services = {
       xserver.enable = true;
       displayManager.gdm.enable = true;

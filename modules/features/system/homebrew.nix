@@ -3,7 +3,7 @@
   inputs,
   ...
 }: {
-  flake.darwinModules.homebrew = {
+  flake.modules.darwin.homebrew = {
     config,
     username,
     ...

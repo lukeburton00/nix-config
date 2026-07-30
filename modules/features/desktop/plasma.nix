@@ -3,7 +3,7 @@
   inputs,
   ...
 }: {
-  flake.nixosModules.plasma = {
+  flake.modules.nixos.plasma = {
     services = {
       desktopManager.plasma6.enable = true;
       displayManager.plasma-login-manager.enable = true;

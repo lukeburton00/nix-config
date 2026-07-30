@@ -3,33 +3,33 @@
   inputs,
   ...
 }: {
-  flake.nixosModules.endymionConfiguration = {
+  flake.modules.nixos.endymionConfiguration = {
     pkgs,
     lib,
     ...
   }: {
     imports = [
-      self.nixosModules.endymionHardware
-      self.nixosModules.nix-ld
-      self.nixosModules.font
-      self.nixosModules.cider
-      self.nixosModules.systemd-boot
-      self.nixosModules.cosmic
-      self.nixosModules.homeManager
-      self.nixosModules.ghostty
-      self.nixosModules.tailscale
-      self.nixosModules.nixSettings
-      self.nixosModules.direnv
-      self.nixosModules.locale
-      self.nixosModules.monitors
-      self.nixosModules.networking
-      self.nixosModules.gc
-      self.nixosModules.nvidia
-      self.nixosModules.flatpak
-      self.nixosModules.appimage
-      self.nixosModules.gaming
-      self.nixosModules.catppuccin
-      self.nixosModules.luke
+      self.modules.nixos.endymionHardware
+      self.modules.nixos.nix-ld
+      self.modules.nixos.font
+      self.modules.nixos.cider
+      self.modules.nixos.systemd-boot
+      self.modules.nixos.cosmic
+      self.modules.nixos.homeManager
+      self.modules.nixos.ghostty
+      self.modules.nixos.tailscale
+      self.modules.nixos.nixSettings
+      self.modules.nixos.direnv
+      self.modules.nixos.locale
+      self.modules.nixos.monitors
+      self.modules.nixos.networking
+      self.modules.nixos.gc
+      self.modules.nixos.nvidia
+      self.modules.nixos.flatpak
+      self.modules.nixos.appimage
+      self.modules.nixos.gaming
+      self.modules.nixos.catppuccin
+      self.modules.nixos.luke
     ];
 
     system.stateVersion = "26.05";

@@ -17,13 +17,13 @@
     };
   };
 
-  flake.nixosModules.ghostty = {pkgs, ...}: {
+  flake.modules.nixos.ghostty = {pkgs, ...}: {
     environment.systemPackages = with pkgs; [
       ghostty
     ];
   };
 
-  flake.darwinModules.ghostty = {
+  flake.modules.darwin.ghostty = {
     homebrew.casks = [
       "ghostty"
     ];

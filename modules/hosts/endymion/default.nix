@@ -5,7 +5,7 @@
 }: {
   flake.nixosConfigurations.endymion = inputs.nixpkgs.lib.nixosSystem {
     modules = [
-      self.nixosModules.endymionConfiguration
+      self.modules.nixos.endymionConfiguration
     ];
   };
 }

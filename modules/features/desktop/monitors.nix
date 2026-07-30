@@ -3,7 +3,7 @@
   inputs,
   ...
 }: {
-  flake.nixosModules.monitors = {lib, ...}: {
+  flake.modules.nixos.monitors = {lib, ...}: {
     options.monitors = {
       primary = lib.mkOption {
         type = lib.types.str;

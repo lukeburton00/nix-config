@@ -3,7 +3,7 @@
   inputs,
   ...
 }: {
-  flake.nixosModules.gaming = {pkgs, ...}: {
+  flake.modules.nixos.gaming = {pkgs, ...}: {
     programs = {
       steam = {
         enable = true;

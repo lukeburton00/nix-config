@@ -7,6 +7,6 @@
     services.tailscale.enable = true;
   };
 in {
-  flake.nixosModules.tailscale = tailscale;
-  flake.darwinModules.tailscale = tailscale;
+  flake.modules.nixos.tailscale = tailscale;
+  flake.modules.darwin.tailscale = tailscale;
 }

@@ -3,7 +3,7 @@
   inputs,
   ...
 }: {
-  flake.nixosModules.gc = {pkgs, ...}: {
+  flake.modules.nixos.gc = {pkgs, ...}: {
     nix.gc = {
       automatic = true;
       dates = "daily";

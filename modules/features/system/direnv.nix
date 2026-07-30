@@ -12,6 +12,6 @@
     };
   };
 in {
-  flake.nixosModules.direnv = direnvConfig;
+  flake.modules.nixos.direnv = direnvConfig;
   flake.modules.darwin.direnv = direnvConfig;
 }

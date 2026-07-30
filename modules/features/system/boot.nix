@@ -3,7 +3,7 @@
   inputs,
   ...
 }: {
-  flake.nixosModules.systemd-boot = {pkgs, ...}: {
+  flake.modules.nixos.systemd-boot = {pkgs, ...}: {
     boot = {
       loader.systemd-boot.enable = true;
       loader.efi.canTouchEfiVariables = true;

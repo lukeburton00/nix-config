@@ -13,7 +13,7 @@
     };
   };
 
-  flake.darwinModules.firefox = {
+  flake.modules.darwin.firefox = {
     homebrew.casks = [
       "firefox"
     ];

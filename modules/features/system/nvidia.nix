@@ -3,7 +3,7 @@
   inputs,
   ...
 }: {
-  flake.nixosModules.nvidia = {
+  flake.modules.nixos.nvidia = {
     hardware = {
       graphics.enable = true;
       nvidia = {

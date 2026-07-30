@@ -3,7 +3,7 @@
   inputs,
   ...
 }: {
-  flake.nixosModules.nixSettings = {
+  flake.modules.nixos.nixSettings = {
     nix.settings.experimental-features = [
       "nix-command"
       "flakes"
@@ -11,7 +11,7 @@
     nixpkgs.config.allowUnfree = true;
   };
 
-  flake.darwinModules.nixSettings = {
+  flake.modules.darwin.nixSettings = {
     nix.enable = false;
   };
 }

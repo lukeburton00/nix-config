@@ -3,9 +3,9 @@
   inputs,
   ...
 }: {
-  flake.nixosModules.flatpak = {pkgs, ...}: {
+  flake.modules.nixos.flatpak = {pkgs, ...}: {
     imports = [
-      inputs.nix-flatpak.nixosModules.nix-flatpak
+      inputs.nix-flatpak.modules.nixos.nix-flatpak
     ];
 
     xdg.portal = {

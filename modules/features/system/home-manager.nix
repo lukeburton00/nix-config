@@ -2,8 +2,7 @@
   self,
   inputs,
   ...
-}:
-let
+}: let
   homeManagerBase = {
     home-manager = {
       useGlobalPkgs = true;
@@ -14,10 +13,14 @@ let
     };
   };
 in {
-  flake.nixosModules.homeManager = homeManagerBase // {
-    imports = [inputs.home-manager.nixosModules.default];
-  };
-  flake.darwinModules.homeManager = homeManagerBase // {
-    imports = [inputs.home-manager.darwinModules.default];
-  };
+  flake.nixosModules.homeManager =
+    homeManagerBase
+    // {
+      imports = [inputs.home-manager.nixosModules.default];
+    };
+  flake.modules.darwin.homeManager =
+    homeManagerBase
+    // {
+      imports = [inputs.home-manager.darwinModules.default];
+    };
 }

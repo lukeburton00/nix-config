@@ -19,7 +19,7 @@
     home.homeDirectory = "/Users/lukeburton";
   };
 
-  flake.darwinModules.lukeWork = {
+  flake.modules.darwin.lukeWork = {
     system.primaryUser = "lukeburton";
     home-manager.users.lukeburton = self.homeModules.lukeWork;
     users.users.lukeburton.home = "/Users/lukeburton";

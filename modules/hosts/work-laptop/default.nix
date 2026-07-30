@@ -8,7 +8,7 @@
       username = "lukeburton";
     };
     modules = [
-      self.darwinModules.work-laptopConfiguration
+      self.modules.darwin.work-laptopConfiguration
     ];
   };
 }

@@ -15,9 +15,9 @@
       firefox.force = true;
     };
   };
-  flake.nixosModules.catppuccin = {
+  flake.modules.nixos.catppuccin = {
     imports = [
-      inputs.catppuccin.nixosModules.catppuccin
+      inputs.catppuccin.modules.nixos.catppuccin
     ];
     catppuccin = {
       enable = true;

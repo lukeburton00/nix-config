@@ -3,7 +3,7 @@
   inputs,
   ...
 }: {
-  flake.nixosModules.cider = {
+  flake.modules.nixos.cider = {
     services.flatpak.packages = [
       "sh.cider.Cider"
     ];

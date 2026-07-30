@@ -24,7 +24,7 @@
     programs.home-manager.enable = true;
   };
 
-  flake.nixosModules.luke = {
+  flake.modules.nixos.luke = {
     pkgs,
     lib,
     ...
@@ -43,7 +43,7 @@
     };
   };
 
-  flake.darwinModules.luke = {
+  flake.modules.darwin.luke = {
     home-manager.users.luke = {
       imports = [
         self.homeModules.luke
