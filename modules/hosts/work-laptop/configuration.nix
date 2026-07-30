@@ -13,7 +13,7 @@
       self.darwinModules.homeManager
       self.darwinModules.ghostty
       self.darwinModules.nixSettings
-      self.darwinModules.direnv
+      self.modules.darwin.direnv
       self.darwinModules.locale
       self.darwinModules.homebrew
       self.darwinModules.firefox
