@@ -29,6 +29,7 @@
       self.nixosModules.appimage
       self.nixosModules.gaming
       self.nixosModules.catppuccin
+      self.nixosModules.elixirOverlay
       self.nixosModules.luke
     ];
 
