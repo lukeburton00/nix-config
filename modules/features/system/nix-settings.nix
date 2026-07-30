@@ -13,5 +13,6 @@
 
   flake.modules.darwin.nixSettings = {
     nix.enable = false;
+    nixpkgs.config.allowUnfree = true;
   };
 }
