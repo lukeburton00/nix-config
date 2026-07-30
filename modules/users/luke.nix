@@ -39,7 +39,6 @@
       imports = [
         self.homeModules.luke
         self.homeModules.catppuccin
-        self.homeModules.cosmic
       ];
     };
   };
