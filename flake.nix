@@ -33,6 +33,13 @@
       url = "github:homebrew/homebrew-cask";
       flake = false;
     };
+    cosmic-manager = {
+      url = "github:HeitorAugustoLN/cosmic-manager";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        home-manager.follows = "home-manager";
+      };
+    };
     catppuccin = {
       url = "github:catppuccin/nix";
     };
