@@ -17,7 +17,7 @@
   };
   flake.modules.nixos.catppuccin = {
     imports = [
-      inputs.catppuccin.modules.nixos.catppuccin
+      inputs.catppuccin.nixosModules.catppuccin
     ];
     catppuccin = {
       enable = true;

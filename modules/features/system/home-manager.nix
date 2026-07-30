@@ -13,7 +13,7 @@
     };
   };
 in {
-  flake.nixosModules.homeManager =
+  flake.modules.nixos.homeManager =
     homeManagerBase
     // {
       imports = [inputs.home-manager.nixosModules.default];
