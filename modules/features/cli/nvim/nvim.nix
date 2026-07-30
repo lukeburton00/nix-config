@@ -13,6 +13,7 @@
       defaultEditor = true;
 
       extraPackages = with pkgs; [
+        tree-sitter
         # nix
         nil
         alejandra
@@ -53,6 +54,9 @@
 
         # odin
         ols
+
+        # elixir
+        elixir-ls
       ];
 
       plugins = with pkgs.vimPlugins; [

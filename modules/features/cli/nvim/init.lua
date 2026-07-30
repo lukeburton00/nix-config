@@ -28,8 +28,12 @@ local function map(mode, lhs, rhs, opts)
 	vim.keymap.set(mode, lhs, rhs, opts)
 end
 
-require("nvim-treesitter").setup({
-	highlight = { enable = true },
+require("nvim-treesitter").setup()
+
+vim.api.nvim_create_autocmd("FileType", {
+	callback = function()
+		pcall(vim.treesitter.start)
+	end,
 })
 
 map("n", "Q", "<nop>")
@@ -119,6 +123,7 @@ vim.lsp.enable({
 	"rust_analyzer",
 	"neocmake",
 	"ts_ls",
+	"elixirls",
 })
 
 vim.lsp.config("lua_ls", {
@@ -171,6 +176,7 @@ require("lint").linters_by_ft = {
 	cmake = { "cmake_lint" },
 	rust = { "clippy" },
 	typescript = { "eslint_d" },
+	elixir = { "credo" },
 }
 
 vim.api.nvim_create_autocmd({ "BufWritePost", "BufReadPost" }, {
@@ -213,6 +219,7 @@ require("conform").setup({
 		cmake = { "cmake_format" },
 		rust = { "rustfmt" },
 		typescript = { "prettierd" },
+		elixir = { "mix" },
 	},
 	default_format_opts = {
 		lsp_format = "fallback",
