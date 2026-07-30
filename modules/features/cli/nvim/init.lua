@@ -88,6 +88,7 @@ require("fzf-lua").setup({
 		fzf = {
 			["tab"] = "down",
 			["btab"] = "up",
+			["ctrl-q"] = "select-all+accept",
 		},
 	},
 })
