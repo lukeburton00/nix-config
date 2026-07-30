@@ -16,6 +16,7 @@
       self.homeModules.zsh
       self.homeModules.lazyworktree
       self.homeModules.nvim
+      self.homeModules.firefox
       self.homeModules.tools
     ];
 
@@ -38,7 +39,7 @@
       imports = [
         self.homeModules.luke
         self.homeModules.catppuccin
-        self.homeModules.firefox
+        self.homeModules.cosmic
       ];
     };
   };
