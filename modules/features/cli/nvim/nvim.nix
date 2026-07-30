@@ -22,41 +22,6 @@
         # lua
         stylua
         lua-language-server
-
-        # typescript
-        typescript-language-server
-        prettierd
-        eslint_d
-
-        # golang
-        gopls
-        gofumpt
-        golangci-lint
-        goimports-reviser
-
-        # ruby
-        solargraph
-        rubyfmt
-        rubocop
-
-        # c/cpp
-        clang-tools
-
-        # cmake
-        neocmakelsp
-        cmake-format
-        cmake-lint
-
-        # Rust
-        clippy
-        rustfmt
-        rust-analyzer
-
-        # odin
-        ols
-
-        # elixir
-        elixir-ls
       ];
 
       plugins = with pkgs.vimPlugins; [
