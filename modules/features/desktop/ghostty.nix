@@ -3,7 +3,7 @@
   inputs,
   ...
 }: {
-  flake.homeModules.ghostty = {
+  flake.modules.homeManager.ghostty = {
     programs.ghostty = {
       enable = true;
       package = null;
