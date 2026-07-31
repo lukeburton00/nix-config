@@ -3,7 +3,7 @@
   inputs,
   ...
 }: {
-  flake.homeModules.workTools = {pkgs, ...}: {
+  flake.modules.homeManager.workTools = {pkgs, ...}: {
     home.packages = with pkgs; [
       codex
       claude-code

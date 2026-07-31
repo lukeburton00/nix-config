@@ -3,7 +3,7 @@
   inputs,
   ...
 }: {
-  flake.homeModules.firefox = {
+  flake.modules.homeManager.firefox = {
     programs.firefox = {
       enable = true;
       profiles.default = {

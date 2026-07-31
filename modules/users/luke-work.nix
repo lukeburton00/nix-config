@@ -3,17 +3,10 @@
   inputs,
   ...
 }: {
-  flake.homeModules.lukeWork = {pkgs, ...}: {
+  flake.modules.homeManager.lukeWork = {pkgs, ...}: {
     imports = [
-      self.homeModules.zsh
-      self.homeModules.nvim
-      self.homeModules.tools
-      self.homeModules.starship
-      self.homeModules.ripgrep
-      self.homeModules.yazi
-      self.homeModules.zoxide
-      self.homeModules.tmux
-      self.homeModules.workTools
+      self.modules.homeManager.devtools
+      self.modules.homeManager.workTools
     ];
 
     home.stateVersion = "26.05";
@@ -26,7 +19,7 @@
       self.modules.darwin.workTools
     ];
     system.primaryUser = "lukeburton";
-    home-manager.users.lukeburton = self.homeModules.lukeWork;
+    home-manager.users.lukeburton = self.modules.homeManager.lukeWork;
     users.users.lukeburton.home = "/Users/lukeburton";
   };
 }

@@ -3,10 +3,10 @@
   inputs,
   ...
 }: {
-  flake.homeModules.luke = {pkgs, ...}: {
+  flake.modules.homeManager.luke = {pkgs, ...}: {
     imports = [
-      self.homeModules.ghostty
-      self.homeModules.firefox
+      self.modules.homeManager.ghostty
+      self.modules.homeManager.firefox
       self.modules.homeManager.devtools
     ];
 
@@ -27,8 +27,8 @@
     };
     home-manager.users.luke = {
       imports = [
-        self.homeModules.luke
-        self.homeModules.catppuccin
+        self.modules.homeManager.luke
+        self.modules.homeManager.catppuccin
       ];
     };
   };
@@ -36,7 +36,7 @@
   flake.modules.darwin.luke = {
     home-manager.users.luke = {
       imports = [
-        self.homeModules.luke
+        self.modules.homeManager.luke
       ];
       home.homeDirectory = "/Users/luke";
     };
