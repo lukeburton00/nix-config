@@ -21,7 +21,6 @@
       self.modules.nixos.nixSettings
       self.modules.nixos.direnv
       self.modules.nixos.locale
-      self.modules.nixos.monitors
       self.modules.nixos.networking
       self.modules.nixos.gc
       self.modules.nixos.nvidia
