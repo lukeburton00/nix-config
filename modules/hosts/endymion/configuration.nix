@@ -33,11 +33,6 @@
 
     system.stateVersion = "26.05";
 
-    monitors = {
-      primary = "DP-4";
-      secondary = "DP-3";
-    };
-
     networking.hostName = "endymion";
   };
 }
