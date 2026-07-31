@@ -3,7 +3,7 @@
   inputs,
   ...
 }: {
-  flake.homeModules.nvim = {pkgs, ...}: {
+  flake.modules.homeManager.nvim = {pkgs, ...}: {
     programs.neovim = {
       enable = true;
 
@@ -14,6 +14,7 @@
 
       extraPackages = with pkgs; [
         tree-sitter
+
         # nix
         nil
         alejandra
