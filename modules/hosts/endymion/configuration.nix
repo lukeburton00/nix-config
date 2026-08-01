@@ -22,7 +22,6 @@
       self.modules.nixos.direnv
       self.modules.nixos.locale
       self.modules.nixos.networking
-      self.modules.nixos.gc
       self.modules.nixos.nvidia
       self.modules.nixos.flatpak
       self.modules.nixos.appimage
