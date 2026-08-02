@@ -28,7 +28,6 @@
     home-manager.users.luke = {
       imports = [
         self.modules.homeManager.luke
-        self.modules.homeManager.catppuccin
       ];
     };
   };

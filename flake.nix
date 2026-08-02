@@ -40,9 +40,6 @@
         home-manager.follows = "home-manager";
       };
     };
-    catppuccin = {
-      url = "github:catppuccin/nix";
-    };
   };
 
   outputs = inputs:
