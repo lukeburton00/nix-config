@@ -17,7 +17,8 @@
       self.modules.darwin.locale
       self.modules.darwin.homebrew
       self.modules.darwin.firefox
-      self.modules.darwin.lukeWork
+      self.modules.darwin.lukeburton
+      self.modules.darwin.workTools
     ];
 
     system.stateVersion = 6;

@@ -3,7 +3,7 @@
   inputs,
   ...
 }: {
-  flake.modules.homeManager.lukeWork = {pkgs, ...}: {
+  flake.modules.homeManager.lukeburton = {pkgs, ...}: {
     imports = [
       self.modules.homeManager.devtools
       self.modules.homeManager.workTools
@@ -14,12 +14,9 @@
     home.homeDirectory = "/Users/lukeburton";
   };
 
-  flake.modules.darwin.lukeWork = {
-    imports = [
-      self.modules.darwin.workTools
-    ];
+  flake.modules.darwin.lukeburton = {
     system.primaryUser = "lukeburton";
-    home-manager.users.lukeburton = self.modules.homeManager.lukeWork;
+    home-manager.users.lukeburton = self.modules.homeManager.lukeburton;
     users.users.lukeburton.home = "/Users/lukeburton";
   };
 }
