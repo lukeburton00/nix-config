@@ -18,21 +18,23 @@
 
     networking.hostName = "endymion";
 
-    cosmic.enable = true;
-    desktop-apps.enable = true;
-    gaming.enable = true;
-    nvidia.enable = true;
-
     programs.zsh.enable = true;
+
     users.users.${username} = {
       isNormalUser = true;
       extraGroups = ["networkmanager" "wheel"];
       shell = pkgs.zsh;
     };
+
     home-manager.users.${username} = {
       imports = [
         self.modules.homeManager.${username}
       ];
     };
+
+    cosmic.enable = true;
+    desktop-apps.enable = true;
+    gaming.enable = true;
+    nvidia.enable = true;
   };
 }
