@@ -6,31 +6,32 @@
   flake.modules.nixos.endymionConfiguration = {
     pkgs,
     lib,
+    username,
     ...
   }: {
     imports = [
-      self.modules.nixos.endymionHardware
-      self.modules.nixos.nix-ld
-      self.modules.nixos.font
-      self.modules.nixos.cider
-      self.modules.nixos.systemd-boot
+      self.modules.nixos.endymion-hardware
+      self.modules.nixos.desktop
       self.modules.nixos.cosmic
-      self.modules.nixos.homeManager
-      self.modules.nixos.ghostty
-      self.modules.nixos.tailscale
-      self.modules.nixos.nixSettings
-      self.modules.nixos.direnv
-      self.modules.nixos.locale
-      self.modules.nixos.networking
+      self.modules.nixos.base
       self.modules.nixos.nvidia
-      self.modules.nixos.flatpak
-      self.modules.nixos.appimage
       self.modules.nixos.gaming
-      self.modules.nixos.luke
     ];
 
     system.stateVersion = "26.05";
 
     networking.hostName = "endymion";
+
+    programs.zsh.enable = true;
+    users.users.${username} = {
+      isNormalUser = true;
+      extraGroups = ["networkmanager" "wheel"];
+      shell = pkgs.zsh;
+    };
+    home-manager.users.${username} = {
+      imports = [
+        self.modules.homeManager.${username}
+      ];
+    };
   };
 }

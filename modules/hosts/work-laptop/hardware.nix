@@ -3,7 +3,7 @@
   inputs,
   ...
 }: {
-  flake.modules.darwin.work-laptopHardware = {lib, ...}: {
+  flake.modules.darwin.work-laptop-hardware = {lib, ...}: {
     nixpkgs.hostPlatform = lib.mkDefault "aarch64-darwin";
   };
 }

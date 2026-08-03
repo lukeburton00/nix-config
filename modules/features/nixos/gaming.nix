@@ -4,6 +4,10 @@
   ...
 }: {
   flake.modules.nixos.gaming = {pkgs, ...}: {
+    imports = [
+      inputs.nix-flatpak.nixosModules.nix-flatpak
+    ];
+
     programs = {
       steam = {
         enable = true;
@@ -11,6 +15,13 @@
       };
       gamemode.enable = true;
     };
+
+    environment.systemPackages = with pkgs; [
+      discord
+      ckan
+      heroic
+      prismlauncher
+    ];
 
     services.flatpak.remotes = [
       {
@@ -25,13 +36,6 @@
         origin = "amethyst";
       }
       "com.vysp3r.ProtonPlus"
-    ];
-
-    environment.systemPackages = with pkgs; [
-      discord
-      ckan
-      heroic
-      prismlauncher
     ];
   };
 }
