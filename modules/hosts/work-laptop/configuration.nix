@@ -20,7 +20,7 @@
     home-manager.users.${username} = self.modules.homeManager.${username};
     users.users.${username}.home = "/Users/${username}";
 
-    desktop.enable = true;
+    desktop-apps.enable = true;
     work-apps.enable = true;
   };
 }

@@ -3,16 +3,16 @@
   inputs,
   ...
 }: {
-  flake.modules.darwin.desktop = {
+  flake.modules.darwin.desktop-apps = {
     lib,
     config,
     ...
   }: {
     options = {
-      desktop.enable = lib.mkEnableOption "enables desktop applications";
+      desktop-apps.enable = lib.mkEnableOption "enables desktop applications";
     };
 
-    config = lib.mkIf config.desktop.enable {
+    config = lib.mkIf config.desktop-apps.enable {
       homebrew.casks = [
         "firefox"
         "ghostty"
