@@ -3,12 +3,16 @@
   inputs,
   ...
 }: {
-  flake.modules.homeManager.dev = {pkgs, ...}: {
+  flake.modules.homeManager.devtools = {
+    lib,
+    config,
+    pkgs,
+    ...
+  }: {
     imports = [
       self.modules.homeManager.dev-zsh
       self.modules.homeManager.dev-tmux
       self.modules.homeManager.dev-direnv
-      self.modules.homeManager.dev-ghostty
       self.modules.homeManager.dev-fd
       self.modules.homeManager.dev-fzf
       self.modules.homeManager.dev-git
@@ -22,26 +26,32 @@
       self.modules.homeManager.dev-zoxide
     ];
 
-    home.sessionVariables = {
-      EDITOR = "nvim";
-      VISUAL = "nvim";
+    options = {
+      devtools.enable = lib.mkEnableOption "enables development tools";
     };
 
-    home.packages = with pkgs; [
-      neovim
+    config = lib.mkIf config.devtools.enable {
+      home.sessionVariables = {
+        EDITOR = "nvim";
+        VISUAL = "nvim";
+      };
 
-      croc
-      stow
-      tree
-      tree-sitter
-      gcc
-      tmux-sessionizer
+      home.packages = with pkgs; [
+        neovim
 
-      lua-language-server
-      stylua
-      nil
-      alejandra
-      statix
-    ];
+        croc
+        stow
+        tree
+        tree-sitter
+        gcc
+        tmux-sessionizer
+
+        lua-language-server
+        stylua
+        nil
+        alejandra
+        statix
+      ];
+    };
   };
 }

@@ -3,7 +3,7 @@
   inputs,
   ...
 }: {
-  flake.modules.nixos.endymionConfiguration = {
+  flake.modules.nixos.endymion-config = {
     pkgs,
     lib,
     username,
@@ -11,16 +11,17 @@
   }: {
     imports = [
       self.modules.nixos.endymion-hardware
-      self.modules.nixos.desktop
-      self.modules.nixos.cosmic
-      self.modules.nixos.base
-      self.modules.nixos.nvidia
-      self.modules.nixos.gaming
+      self.modules.nixos.default
     ];
 
     system.stateVersion = "26.05";
 
     networking.hostName = "endymion";
+
+    cosmic.enable = true;
+    desktop-apps.enable = true;
+    gaming.enable = true;
+    nvidia.enable = true;
 
     programs.zsh.enable = true;
     users.users.${username} = {

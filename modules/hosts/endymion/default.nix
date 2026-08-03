@@ -8,7 +8,7 @@
       username = "luke";
     };
     modules = [
-      self.modules.nixos.endymionConfiguration
+      self.modules.nixos.endymion-config
     ];
   };
 }

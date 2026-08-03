@@ -3,35 +3,31 @@
   inputs,
   ...
 }: {
-  flake.modules.nixos.desktop = {pkgs, ...}: {
-    imports = [
-      inputs.nix-flatpak.nixosModules.nix-flatpak
-    ];
-
-    programs = {
-      appimage.enable = true;
-      appimage.binfmt = true;
-
-      firefox = {
-        enable = true;
-      };
+  flake.modules.nixos.desktop-apps = {
+    lib,
+    config,
+    pkgs,
+    ...
+  }: {
+    options = {
+      desktop-apps.enable = lib.mkEnableOption "enables desktop applications";
     };
 
+    config = lib.mkIf config.desktop-apps.enable {
+      programs = {
+        appimage.enable = true;
+        appimage.binfmt = true;
 
-    fonts.packages = with pkgs; [
-      maple-mono.NF
-    ];
+        firefox = {
+          enable = true;
+        };
+      };
 
-    services.flatpak = {
-      enable = true;
-      update.auto.enable = true;
-      remotes = [
-        {
-          name = "flathub";
-          location = "https://dl.flathub.org/repo/flathub.flatpakrepo";
-        }
+      fonts.packages = with pkgs; [
+        maple-mono.NF
       ];
-      packages = [
+
+      services.flatpak.packages = [
         "sh.cider.Cider"
       ];
     };

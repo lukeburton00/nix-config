@@ -3,39 +3,46 @@
   inputs,
   ...
 }: {
-  flake.modules.nixos.gaming = {pkgs, ...}: {
-    imports = [
-      inputs.nix-flatpak.nixosModules.nix-flatpak
-    ];
-
-    programs = {
-      steam = {
-        enable = true;
-        remotePlay.openFirewall = true;
-      };
-      gamemode.enable = true;
+  flake.modules.nixos.gaming = {
+    lib,
+    config,
+    pkgs,
+    ...
+  }: {
+    options = {
+      gaming.enable = lib.mkEnableOption "enables gaming support";
     };
 
-    environment.systemPackages = with pkgs; [
-      discord
-      ckan
-      heroic
-      prismlauncher
-    ];
+    config = lib.mkIf config.gaming.enable {
+      programs = {
+        steam = {
+          enable = true;
+          remotePlay.openFirewall = true;
+        };
+        gamemode.enable = true;
+      };
 
-    services.flatpak.remotes = [
-      {
-        name = "amethyst";
-        location = "https://chrisdkn.github.io/Amethyst-Mod-Manager/amethyst.flatpakrepo";
-      }
-    ];
+      environment.systemPackages = with pkgs; [
+        discord
+        ckan
+        heroic
+        prismlauncher
+      ];
 
-    services.flatpak.packages = [
-      {
-        appId = "io.github.Amethyst.ModManager//stable";
-        origin = "amethyst";
-      }
-      "com.vysp3r.ProtonPlus"
-    ];
+      services.flatpak.remotes = [
+        {
+          name = "amethyst";
+          location = "https://chrisdkn.github.io/Amethyst-Mod-Manager/amethyst.flatpakrepo";
+        }
+      ];
+
+      services.flatpak.packages = [
+        {
+          appId = "io.github.Amethyst.ModManager//stable";
+          origin = "amethyst";
+        }
+        "com.vysp3r.ProtonPlus"
+      ];
+    };
   };
 }

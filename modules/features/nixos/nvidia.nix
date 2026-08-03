@@ -4,16 +4,26 @@
   ...
 }: {
   flake.modules.nixos.nvidia = {
-    hardware = {
-      graphics.enable = true;
-      nvidia = {
-        open = true;
-        modesetting.enable = true;
-        powerManagement.enable = true;
-      };
+    lib,
+    config,
+    ...
+  }: {
+    options = {
+      nvidia.enable = lib.mkEnableOption "enables nvidia support";
     };
-    services.xserver.videoDrivers = ["nvidia"];
 
-    boot.kernelParams = ["nvidia.NVreg_TemporaryFilePath=/var/tmp"];
+    config = lib.mkIf config.nvidia.enable {
+      hardware = {
+        graphics.enable = true;
+        nvidia = {
+          open = true;
+          modesetting.enable = true;
+          powerManagement.enable = true;
+        };
+      };
+      services.xserver.videoDrivers = ["nvidia"];
+
+      boot.kernelParams = ["nvidia.NVreg_TemporaryFilePath=/var/tmp"];
+    };
   };
 }
