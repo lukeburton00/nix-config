@@ -10,20 +10,20 @@
     ...
   }: {
     imports = [
-      self.modules.homeManager.dev-zsh
-      self.modules.homeManager.dev-tmux
-      self.modules.homeManager.dev-direnv
-      self.modules.homeManager.dev-fd
-      self.modules.homeManager.dev-fzf
-      self.modules.homeManager.dev-git
-      self.modules.homeManager.dev-lazygit
-      self.modules.homeManager.dev-lazyworktree
-      self.modules.homeManager.dev-mise
-      self.modules.homeManager.dev-pi-coding-agent
-      self.modules.homeManager.dev-ripgrep
-      self.modules.homeManager.dev-starship
-      self.modules.homeManager.dev-yazi
-      self.modules.homeManager.dev-zoxide
+      self.modules.homeManager.zsh
+      self.modules.homeManager.tmux
+      self.modules.homeManager.direnv
+      self.modules.homeManager.fd
+      self.modules.homeManager.fzf
+      self.modules.homeManager.git
+      self.modules.homeManager.lazygit
+      self.modules.homeManager.lazyworktree
+      self.modules.homeManager.mise
+      self.modules.homeManager.pi-coding-agent
+      self.modules.homeManager.ripgrep
+      self.modules.homeManager.starship
+      self.modules.homeManager.yazi
+      self.modules.homeManager.zoxide
     ];
 
     options = {
@@ -31,6 +31,21 @@
     };
 
     config = lib.mkIf config.devtools.enable {
+      zsh.enable = lib.mkDefault true;
+      tmux.enable = lib.mkDefault true;
+      direnv.enable = lib.mkDefault true;
+      fd.enable = lib.mkDefault true;
+      fzf.enable = lib.mkDefault true;
+      git.enable = lib.mkDefault true;
+      lazygit.enable = lib.mkDefault true;
+      lazyworktree.enable = lib.mkDefault true;
+      mise.enable = lib.mkDefault true;
+      pi-coding-agent.enable = lib.mkDefault true;
+      ripgrep.enable = lib.mkDefault true;
+      starship.enable = lib.mkDefault true;
+      yazi.enable = lib.mkDefault true;
+      zoxide.enable = lib.mkDefault true;
+
       home.sessionVariables = {
         EDITOR = "nvim";
         VISUAL = "nvim";

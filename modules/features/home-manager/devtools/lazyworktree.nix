@@ -3,12 +3,16 @@
   inputs,
   ...
 }: {
-  flake.modules.homeManager.dev-lazyworktree = {
+  flake.modules.homeManager.lazyworktree = {
     lib,
     config,
     ...
   }: {
-    config = lib.mkIf config.devtools.enable {
+    options = {
+      lazyworktree.enable = lib.mkEnableOption "enables lazyworktree";
+    };
+
+    config = lib.mkIf config.lazyworktree.enable {
       programs.lazyworktree = {
         enable = true;
         enableZshIntegration = true;

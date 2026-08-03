@@ -3,12 +3,16 @@
   inputs,
   ...
 }: {
-  flake.modules.homeManager.dev-yazi = {
+  flake.modules.homeManager.yazi = {
     lib,
     config,
     ...
   }: {
-    config = lib.mkIf config.devtools.enable {
+    options = {
+      yazi.enable = lib.mkEnableOption "enables yazi";
+    };
+
+    config = lib.mkIf config.yazi.enable {
       programs.yazi = {
         enable = true;
         enableZshIntegration = true;

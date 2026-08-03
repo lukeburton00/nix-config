@@ -3,12 +3,16 @@
   inputs,
   ...
 }: {
-  flake.modules.homeManager.dev-zsh = {
+  flake.modules.homeManager.zsh = {
     lib,
     config,
     ...
   }: {
-    config = lib.mkIf config.devtools.enable {
+    options = {
+      zsh.enable = lib.mkEnableOption "enables zsh";
+    };
+
+    config = lib.mkIf config.zsh.enable {
       programs.zsh = {
         enable = true;
         enableCompletion = true;

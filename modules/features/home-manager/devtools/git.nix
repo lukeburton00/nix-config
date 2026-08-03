@@ -3,12 +3,16 @@
   inputs,
   ...
 }: {
-  flake.modules.homeManager.dev-git = {
+  flake.modules.homeManager.git = {
     lib,
     config,
     ...
   }: {
-    config = lib.mkIf config.devtools.enable {
+    options = {
+      git.enable = lib.mkEnableOption "enables git";
+    };
+
+    config = lib.mkIf config.git.enable {
       programs.git = {
         enable = true;
         settings = {

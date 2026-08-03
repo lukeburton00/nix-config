@@ -3,12 +3,16 @@
   inputs,
   ...
 }: {
-  flake.modules.homeManager.dev-fzf = {
+  flake.modules.homeManager.fzf = {
     lib,
     config,
     ...
   }: {
-    config = lib.mkIf config.devtools.enable {
+    options = {
+      fzf.enable = lib.mkEnableOption "enables fzf";
+    };
+
+    config = lib.mkIf config.fzf.enable {
       programs.fzf = {
         enable = true;
         enableZshIntegration = true;

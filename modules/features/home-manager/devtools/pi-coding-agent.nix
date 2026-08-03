@@ -3,13 +3,17 @@
   inputs,
   ...
 }: {
-  flake.modules.homeManager.dev-pi-coding-agent = {
+  flake.modules.homeManager.pi-coding-agent = {
     lib,
     config,
     pkgs,
     ...
   }: {
-    config = lib.mkIf config.devtools.enable {
+    options = {
+      pi-coding-agent.enable = lib.mkEnableOption "enables pi-coding-agent";
+    };
+
+    config = lib.mkIf config.pi-coding-agent.enable {
       programs.pi-coding-agent = {
         enable = true;
         extraPackages = [pkgs.nodejs pkgs.bun];

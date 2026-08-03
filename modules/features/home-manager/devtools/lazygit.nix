@@ -3,12 +3,16 @@
   inputs,
   ...
 }: {
-  flake.modules.homeManager.dev-lazygit = {
+  flake.modules.homeManager.lazygit = {
     lib,
     config,
     ...
   }: {
-    config = lib.mkIf config.devtools.enable {
+    options = {
+      lazygit.enable = lib.mkEnableOption "enables lazygit";
+    };
+
+    config = lib.mkIf config.lazygit.enable {
       programs.lazygit = {
         enable = true;
         enableZshIntegration = true;

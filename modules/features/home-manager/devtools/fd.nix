@@ -3,12 +3,16 @@
   inputs,
   ...
 }: {
-  flake.modules.homeManager.dev-fd = {
+  flake.modules.homeManager.fd = {
     lib,
     config,
     ...
   }: {
-    config = lib.mkIf config.devtools.enable {
+    options = {
+      fd.enable = lib.mkEnableOption "enables fd";
+    };
+
+    config = lib.mkIf config.fd.enable {
       programs.fd = {
         enable = true;
         hidden = true;

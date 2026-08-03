@@ -3,12 +3,16 @@
   inputs,
   ...
 }: {
-  flake.modules.homeManager.dev-direnv = {
+  flake.modules.homeManager.direnv = {
     lib,
     config,
     ...
   }: {
-    config = lib.mkIf config.devtools.enable {
+    options = {
+      direnv.enable = lib.mkEnableOption "enables direnv";
+    };
+
+    config = lib.mkIf config.direnv.enable {
       programs.direnv = {
         enable = true;
         silent = true;

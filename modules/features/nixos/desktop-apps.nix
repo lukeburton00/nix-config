@@ -27,7 +27,7 @@
         maple-mono.NF
       ];
 
-      services.flatpak.packages = [
+      services.flatpak.packages = lib.mkIf config.flatpak.enable [
         "sh.cider.Cider"
       ];
     };

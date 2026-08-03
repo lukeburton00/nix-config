@@ -3,12 +3,16 @@
   inputs,
   ...
 }: {
-  flake.modules.homeManager.dev-ripgrep = {
+  flake.modules.homeManager.ripgrep = {
     lib,
     config,
     ...
   }: {
-    config = lib.mkIf config.devtools.enable {
+    options = {
+      ripgrep.enable = lib.mkEnableOption "enables ripgrep";
+    };
+
+    config = lib.mkIf config.ripgrep.enable {
       programs.ripgrep = {
         enable = true;
         arguments = [

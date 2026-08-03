@@ -3,13 +3,17 @@
   inputs,
   ...
 }: {
-  flake.modules.homeManager.dev-tmux = {
+  flake.modules.homeManager.tmux = {
     lib,
     config,
     pkgs,
     ...
   }: {
-    config = lib.mkIf config.devtools.enable {
+    options = {
+      tmux.enable = lib.mkEnableOption "enables tmux";
+    };
+
+    config = lib.mkIf config.tmux.enable {
       programs.tmux = {
         enable = true;
         baseIndex = 1;

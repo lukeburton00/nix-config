@@ -3,12 +3,16 @@
   inputs,
   ...
 }: {
-  flake.modules.homeManager.dev-mise = {
+  flake.modules.homeManager.mise = {
     lib,
     config,
     ...
   }: {
-    config = lib.mkIf config.devtools.enable {
+    options = {
+      mise.enable = lib.mkEnableOption "enables mise";
+    };
+
+    config = lib.mkIf config.mise.enable {
       programs.mise = {
         enable = true;
         enableZshIntegration = true;
