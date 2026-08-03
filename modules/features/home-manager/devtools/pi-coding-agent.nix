@@ -17,7 +17,12 @@
       programs.pi-coding-agent = {
         enable = true;
         extraPackages = [pkgs.nodejs pkgs.bun];
-        settings = {};
+        settings = {
+          packages = [
+            "npm:pi-web-access"
+          ];
+          hideThinkingBlock = true;
+        };
       };
     };
   };
