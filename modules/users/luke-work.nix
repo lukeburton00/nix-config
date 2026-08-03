@@ -15,5 +15,7 @@
     devtools.enable = true;
     worktools.enable = true;
     ghostty.enable = true;
+    zed.enable = true;
+    nh.enable = true;
   };
 }
