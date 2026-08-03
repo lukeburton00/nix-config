@@ -16,6 +16,7 @@
       homebrew.casks = [
         "firefox"
         "ghostty"
+        "font-maple-mono-nf"
       ];
     };
   };

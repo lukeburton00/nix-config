@@ -33,14 +33,8 @@
       nix.gc = {
         automatic = true;
         dates = "daily";
-        options = "--delete-older-than 0d";
+        options = "--delete-older-than 10d";
       };
-
-      system.activationScripts.pruneOldGenerations.text = ''
-        ${pkgs.nix}/bin/nix-env \
-          --profile /nix/var/nix/profiles/system \
-          --delete-generations +10 || true
-      '';
 
       boot = {
         loader.systemd-boot.enable = true;
@@ -53,10 +47,6 @@
       };
 
       services.tailscale.enable = true;
-
-      fonts.packages = with pkgs; [
-        maple-mono.NF
-      ];
 
       home-manager = {
         useGlobalPkgs = true;

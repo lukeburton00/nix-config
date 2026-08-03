@@ -26,11 +26,7 @@
       shell = pkgs.zsh;
     };
 
-    home-manager.users.${username} = {
-      imports = [
-        self.modules.homeManager.${username}
-      ];
-    };
+    home-manager.users.${username} = self.modules.homeManager.${username};
 
     cosmic.enable = true;
     desktop-apps.enable = true;
