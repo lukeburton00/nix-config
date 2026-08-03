@@ -33,10 +33,6 @@
       url = "github:homebrew/homebrew-cask";
       flake = false;
     };
-    nvf = {
-      url = "github:notashelf/nvf";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = inputs:

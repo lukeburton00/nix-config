@@ -4,12 +4,14 @@
   ...
 }: {
   flake.modules.homeManager.dev = {pkgs, ...}: {
-    imports = [
-      inputs.nvf.homeManagerModules.default
-    ];
+    home.sessionVariables = {
+      EDITOR = "nvim";
+      VISUAL = "nvim";
+    };
 
     home.packages = with pkgs; [
       croc
+      neovim
       stow
       tree
       tree-sitter
@@ -23,8 +25,6 @@
     ];
 
     programs = {
-      nvf = self.modules.homeManager.nvf;
-
       zsh = {
         enable = true;
         enableCompletion = true;
