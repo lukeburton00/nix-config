@@ -13,6 +13,7 @@
       self.modules.homeManager.zsh
       self.modules.homeManager.tmux
       self.modules.homeManager.direnv
+      self.modules.homeManager.devenv
       self.modules.homeManager.fd
       self.modules.homeManager.fzf
       self.modules.homeManager.git
@@ -34,6 +35,7 @@
       zsh.enable = lib.mkDefault true;
       tmux.enable = lib.mkDefault true;
       direnv.enable = lib.mkDefault true;
+      devenv.enable = lib.mkDefault true;
       fd.enable = lib.mkDefault true;
       fzf.enable = lib.mkDefault true;
       git.enable = lib.mkDefault true;

@@ -19,9 +19,13 @@
     networking.hostName = "consul";
 
     system.primaryUser = "${username}";
-    home-manager.users.${username} = self.modules.homeManager.${username};
     users.users.${username}.home = "/Users/${username}";
 
     desktop-apps.enable = true;
+
+    home-manager.users.${username} = {
+      imports = [self.modules.homeManager.${username}];
+      podman.enable = true;
+    };
   };
 }

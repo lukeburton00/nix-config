@@ -19,12 +19,7 @@
     ];
 
     config = lib.mkIf config.base.enable {
-      time.timeZone = "America/Denver";
-
       nix.enable = false;
-      nixpkgs.config.allowUnfree = true;
-
-      services.tailscale.enable = true;
 
       nix-homebrew = {
         enable = true;

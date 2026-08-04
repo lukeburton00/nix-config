@@ -18,7 +18,6 @@
     ];
 
     config = lib.mkIf config.base.enable {
-      time.timeZone = "America/Denver";
       i18n.defaultLocale = "en_US.UTF-8";
 
       services.resolved.enable = true;
@@ -28,7 +27,6 @@
         "nix-command"
         "flakes"
       ];
-      nixpkgs.config.allowUnfree = true;
 
       nix.gc = {
         automatic = true;
@@ -45,8 +43,6 @@
           "net.ipv4.tcp_congestion_control" = "bbr";
         };
       };
-
-      services.tailscale.enable = true;
 
       home-manager = {
         useGlobalPkgs = true;
