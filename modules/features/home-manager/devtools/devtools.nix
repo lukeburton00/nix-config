@@ -27,23 +27,6 @@
       self.modules.homeManager.zoxide
     ];
 
-    home.packages = with pkgs; [
-      neovim
-
-      croc
-      stow
-      tree
-      tree-sitter
-      gcc
-      tmux-sessionizer
-
-      lua-language-server
-      stylua
-      nil
-      alejandra
-      statix
-    ];
-
     options = {
       devtools.enable = lib.mkEnableOption "enables development tools";
     };
@@ -64,6 +47,23 @@
       starship.enable = lib.mkDefault true;
       yazi.enable = lib.mkDefault true;
       zoxide.enable = lib.mkDefault true;
+
+      home.packages = with pkgs; [
+        neovim
+
+        croc
+        stow
+        tree
+        tree-sitter
+        gcc
+        tmux-sessionizer
+
+        lua-language-server
+        stylua
+        nil
+        alejandra
+        statix
+      ];
 
       home.sessionVariables = {
         EDITOR = "nvim";
