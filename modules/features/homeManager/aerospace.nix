@@ -92,6 +92,12 @@
               };
               run = ["move-node-to-workspace 1"];
             }
+            {
+              "if" = {
+                "app-name-regex-substring" = "firefox";
+              };
+              run = ["move-node-to-workspace 2"];
+            }
           ];
 
           mode.resize.binding = {

@@ -1,5 +1,9 @@
-{ self, inputs, ... }: {
-  flake.modules.homeManager.ghostty = { pkgs, ... }: {
+{
+  self,
+  inputs,
+  ...
+}: {
+  flake.modules.homeManager.ghostty = {pkgs, ...}: {
     programs.ghostty = {
       enable = true;
       systemd.enable = !pkgs.stdenv.isDarwin;
@@ -10,7 +14,11 @@
 
       settings = {
         "font-family" = "Maple Mono NF";
-        "font-size" = 15;
+        "font-size" =
+          if pkgs.stdenv.isDarwin
+          then 17
+          else 15;
+
         "quit-after-last-window-closed" = true;
         "term" = "xterm-256color";
         "theme" = "Nord Wave";
