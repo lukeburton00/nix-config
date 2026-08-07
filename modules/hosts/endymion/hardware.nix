@@ -3,7 +3,7 @@
   inputs,
   ...
 }: {
-  flake.modules.nixos.endymion-hardware = {
+  flake.modules.nixos.endymionHardware = {
     config,
     lib,
     pkgs,

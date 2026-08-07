@@ -3,7 +3,7 @@
   inputs,
   ...
 }: {
-  flake.modules.darwin.consulConfig = {username, ...}: {
+  flake.modules.darwin.gladstoneConfig = {username, ...}: {
     imports = with self.modules.darwin; [
       homeManager
       homebrew
@@ -13,15 +13,13 @@
       timezone
 
       podman
-      tailscale
 
       firefox
       ghostty
-      gaming
+
+      work
     ];
 
     system.stateVersion = 6;
-
-    networking.hostName = "consul";
   };
 }

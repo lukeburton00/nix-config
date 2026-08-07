@@ -1,6 +1,6 @@
 {
-  inputs,
   lib,
+  inputs,
   ...
 }: {
   imports = [
@@ -14,5 +14,14 @@
       "aarch64-linux"
       "aarch64-darwin"
     ];
+  };
+
+  options = {
+    flake = inputs.flake-parts.lib.mkSubmoduleOptions {
+      darwinConfigurations = lib.mkOption {
+        type = lib.types.lazyAttrsOf lib.types.raw;
+        default = {};
+      };
+    };
   };
 }

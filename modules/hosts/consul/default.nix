@@ -8,7 +8,8 @@
       username = "luke";
     };
     modules = [
-      self.modules.darwin.consul-config
+      self.modules.darwin.consulHardware
+      self.modules.darwin.consulConfig
     ];
   };
 }

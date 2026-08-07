@@ -3,7 +3,7 @@
   inputs,
   ...
 }: {
-  flake.modules.darwin.consulHardware = {lib, ...}: {
+  flake.modules.darwin.gladstoneHardware = {lib, ...}: {
     nixpkgs.hostPlatform = lib.mkDefault "aarch64-darwin";
   };
 }

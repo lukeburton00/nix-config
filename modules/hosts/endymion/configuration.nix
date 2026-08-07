@@ -3,15 +3,28 @@
   inputs,
   ...
 }: {
-  flake.modules.nixos.endymion-config = {
+  flake.modules.nixos.endymionConfig = {
     pkgs,
-    lib,
     username,
     ...
   }: {
-    imports = [
-      self.modules.nixos.endymion-hardware
-      self.modules.nixos.default
+    imports = with self.modules.nixos; [
+      boot
+      fonts
+      networking
+      nvidia
+      pipewire
+      timezone
+      nixSettings
+      homeManager
+
+      cosmic
+      firefox
+      cider
+      gaming
+      nvidia
+      podman
+      tailscale
     ];
 
     system.stateVersion = "26.05";
@@ -25,12 +38,5 @@
       extraGroups = ["networkmanager" "wheel"];
       shell = pkgs.zsh;
     };
-
-    home-manager.users.${username} = self.modules.homeManager.${username};
-
-    cosmic.enable = true;
-    desktop-apps.enable = true;
-    gaming.enable = true;
-    nvidia.enable = true;
   };
 }
