@@ -13,6 +13,7 @@ in
         ghostty
         nh
         podman
+        aerospace
       ];
     };
 
