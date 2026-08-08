@@ -1,25 +1,18 @@
-{
-  self,
-  inputs,
-  ...
-}: {
+{self, ...}: {
   flake.modules.darwin.gladstoneConfig = {username, ...}: {
     imports = with self.modules.darwin; [
-      homeManager
-      homebrew
+      nix
+      font
 
-      nixSettings
-      fonts
-      timezone
-
-      podman
-
-      firefox
-      ghostty
-
+      desktop
       work
+      dev
     ];
 
     system.stateVersion = 6;
+    time.timeZone = "America/Denver";
+
+    system.primaryUser = username;
+    users.users.${username}.home = "/Users/${username}";
   };
 }

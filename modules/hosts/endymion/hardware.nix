@@ -1,8 +1,4 @@
 {
-  self,
-  inputs,
-  ...
-}: {
   flake.modules.nixos.endymionHardware = {
     config,
     lib,

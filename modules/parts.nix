@@ -8,20 +8,16 @@
     inputs.home-manager.flakeModules.home-manager
   ];
   config = {
+    # x86_64-darwin omitted: nixpkgs 26.11 dropped Intel-mac support.
     systems = [
       "x86_64-linux"
-      "x86_64-darwin"
       "aarch64-linux"
       "aarch64-darwin"
     ];
   };
 
-  options = {
-    flake = inputs.flake-parts.lib.mkSubmoduleOptions {
-      darwinConfigurations = lib.mkOption {
-        type = lib.types.lazyAttrsOf lib.types.raw;
-        default = {};
-      };
-    };
+  options.flake.darwinConfigurations = lib.mkOption {
+    type = lib.types.lazyAttrsOf lib.types.raw;
+    default = {};
   };
 }
